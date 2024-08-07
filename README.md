@@ -49,12 +49,11 @@ Terraform/
 1. Clone este repositório:
 
    ```sh
-   git clone 
-   cd seu-repositorio/Terraform/newrelic-infra
-
+     
 
 2. Crie e configure o arquivo terraform.tfvars no diretório inventories com os valores das variáveis:
 
+```yaml
 aws_region = "us-east-1" //Região que será implantado os recursos
 newrelic_account_id = "" //ACCOUNT ID NEW RELIC
 newrelic_api_key = "" //API KEY NEW RELIC
@@ -69,7 +68,7 @@ tags = {
 integration_exists = false // Alterar para true se a integração já existir, caso nao exista a integracao coloque false
 
 
-
+```
 Inicialização e Aplicação
 
 Inicialize o Terraform:
@@ -87,7 +86,7 @@ terraform plan
 Aplique o plano para provisionar os recursos:
 
 ```hcl
-terraform apply
+terraform apply -var-file=inventories/terraform.tfvars
 ```
 
 Estrutura dos Módulos
@@ -110,4 +109,4 @@ Limpeza
 Para destruir os recursos provisionados, execute:
 
 ```hcl
-terraform destroy
+terraform destroy -var-file=inventories/terraform.tfvars
