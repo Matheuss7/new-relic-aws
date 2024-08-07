@@ -49,6 +49,7 @@ Terraform/
 1. Clone este repositório:
 
    ```sh
+   git@github.com:Matheuss7/new-relic-aws.git
      
 
 2. Crie e configure o arquivo terraform.tfvars no diretório inventories com os valores das variáveis:
